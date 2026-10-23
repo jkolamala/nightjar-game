@@ -411,6 +411,8 @@
           if (Math.hypot(b.x - fly.x, b.y - fly.y) < 23) {
             fly.collected = true;
             setScore(game.score + 1);
+            const shadowRecoil = Math.min(80, Math.max(48, game.width * .075));
+            game.shadowX = Math.max(-24, game.shadowX - shadowRecoil);
             burst(fly.x, fly.y, 13, palette.glow);
             game.popup = { x: fly.x, y: fly.y - 8, age: 0 };
             tone(820, .16, 'sine', .04, 420);
